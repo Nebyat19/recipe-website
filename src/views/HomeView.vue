@@ -1,28 +1,22 @@
 <template>
-  <div class="flex flex-col p-8 justify-center">
-   
-    <div class="flex justify-center mt-2 gap-3">
-      <router-link :to="{name:'byLetter', params:{letter}}" v-for="letter in letters" :key="letter">
-      {{ letter }}
-      </router-link>
-    </div>
+  <div class="px-16 py-5">
+    <h1 class="text-4xl font-semibold">Random Meals</h1>
+    <h3 class="text-sm font-bold text-gray-600">refresh to see more meals</h3>
+
+    <Meals :meals="meals" />
   </div>
 </template>
 
 <script setup>
+import { computed, onMounted } from 'vue'
+import Meals from '@/components/Meals.vue'
+import { useRecipeStore } from '@/stores/RecipeStore'
+import { useRandomLetter } from '@/hooks/randomLetter.js'
 
-import {axiosClient} from '../axiosMealClient'
-import { onMounted } from 'vue';
-const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
-
-onMounted(async()=>{
-  try {
-    const response = await axiosClient.get('/list.php?i=list')
- console.log(response.data)
-  } catch (error) {
-    console.log("Error:")
-  }
-
+const meals = computed(() => recipeStore.meals)
+const recipeStore = useRecipeStore()
+const letter = useRandomLetter()
+onMounted(async () => {
+  recipeStore.fetchRandomMeals(letter)
 })
-
 </script>

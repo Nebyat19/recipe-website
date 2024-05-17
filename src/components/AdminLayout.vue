@@ -1,9 +1,3 @@
-<template>
-  admin page
-</template>
+<template>admin page</template>
 
-<script setup>
-
-</script>
-
-
+<script setup></script>

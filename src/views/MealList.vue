@@ -1,10 +1,5 @@
 <template>
-  <div>
-meal list
-  </div>
+  <div>meal list</div>
 </template>
 
-<script setup>
-
-</script>
-
+<script setup></script>

@@ -10,8 +10,6 @@ import router from './router'
 // const TestApp = createApp(Test)
 // TestApp.mount('#test')
 
-
-
 const app = createApp(App)
 app.use(createPinia())
 app.use(router)

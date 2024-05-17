@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DefaultLayout from '@/components/DefaultLayout.vue'
-import adminPage from "@/components/AdminLayout.vue"
+import adminPage from '@/components/AdminLayout.vue'
+
 const routes = [
   {
     path: '/',
@@ -16,6 +17,12 @@ const routes = [
         name: 'byName',
         component: () => import('../views/MealsByName.vue')
       },
+      //
+      {
+        path: '/ingredient',
+        name: 'ingredient',
+        component: () => import('../views/Ingredients .vue')
+      },
       {
         path: '/by-ingredient/:ingredient?',
         name: 'byIngredient',
@@ -25,13 +32,17 @@ const routes = [
         path: '/by-letter/:letter?',
         name: 'byLetter',
         component: () => import('../views/SearchByLetter.vue')
+      },
+      {
+        path: '/meal/:id',
+        name: 'mealDetail',
+        component: () => import('../views/MealDetail.vue')
       }
     ]
   },
   {
-    path:'/admin',
-    component:adminPage,
-
+    path: '/admin',
+    component: adminPage
   }
 ]
 
