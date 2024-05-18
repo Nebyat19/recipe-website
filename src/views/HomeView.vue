@@ -10,7 +10,7 @@
 
 
     <div class="flex justify-center">
-        <div class="btn bg-secondary-200 text-secondary-200 p-2 hover:shadow-inner transform hover:scale-x-125 hover:bg-opacity-50 transition ease-out duration-500 ">Load more</div>
+        <div @click="refresh()"  class="px-3 py-2 border border-green-600 text-green-600 rounded-lg cursor-pointer ">See more</div>
       </div>  
   </div>
 </template>

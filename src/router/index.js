@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DefaultLayout from '@/components/DefaultLayout.vue'
-import adminPage from '@/components/AdminLayout.vue'
+import adminPage from '@/components/LandingLayout.vue'
 
 const routes = [
   {
@@ -42,14 +42,11 @@ const routes = [
       { path: '/404', name:'404', component:  () => import('../views/404Page.vue') },  
     ]
   },
+ 
   {
     path: '/',
     name: 'landing',
-    component: () => import('../views/LandingView.vue')
-  },
-  {
-    path: '/admin',
-    component: adminPage
+    component: ()=> import('../components/LandingLayout.vue')
   },
   
   { path: '/:catchAll(.*)', redirect:'404'}
