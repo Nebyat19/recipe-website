@@ -5,7 +5,7 @@
   <img class="absolute h-48 top-0 z-0" :src="BLACK_LOGO"/>
     <span v-if="meal.strCategory" class="absolute top-2 left-2 px-3 py-2 text-xs rounded-lg bg-green-100 text-green-600">{{meal.strCategory}}</span>
 
-  <img :src="meal.strMealThumb" alt="strMeal" class="absolute  z-50 h-48 w-full object-cover" />
+  <img :src="meal.strMealThumb" alt="strMeal" class="absolute   h-48 w-full object-cover" />
    </div>
    
     </router-link>

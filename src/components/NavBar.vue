@@ -8,19 +8,19 @@
       <span class="hover:text-gray-700">Search Meal By</span>
     </h1>
     <ul id="menu"  class="text-sm my-6  flex flex-col gap-4">
-      <li class="hover hover:text-white rounded hover:bg-green-400  border-r-4 border-green-400">
+      <li @click="toggleSate()" class="hover hover:text-white rounded hover:bg-green-400  border-r-4 border-green-400">
         <router-link :to="{ name: 'byName', params: {} }" class="flex px-4 justify-end" href="#">
           <span class="font-bold">Meals Name</span>
           <img class="w-5 ml-2 font-bold" :src="SPOON_FORK" alt="" />
         </router-link>
       </li>
-      <li class="hover hover:text-white rounded hover:bg-green-400 px-1">
+      <li @click="toggleSate()" class="hover hover:text-white rounded hover:bg-green-400 px-1">
         <router-link :to="{ name: 'byLetter', params: {} }" class="flex px-4 justify-end" href="#">
           <span class="">By Letter</span>
           <img class="w-5 ml-2 font-bold" :src="SPOON_FORK" alt="" />
         </router-link>
       </li>
-      <li class="hover hover:text-white rounded hover:bg-green-400 px-1">
+      <li @click="toggleSate()" class="hover hover:text-white rounded hover:bg-green-400 px-1">
         <router-link :to="{ name: 'ingredient' }" class="flex px-4 justify-end" href="#">
           <span class="">Ingredients</span>
           <img class="w-5 ml-2 font-bold" :src="SPOON_FORK" alt="" />
@@ -36,5 +36,9 @@
 import { SPOON_FORK } from '@/lib/constants.js'
 import {useSideBarState} from "@/stores/sideBarstate.js"
 const sideBarState= useSideBarState()
+const toggleSate=()=>{
+  sideBarState.toggleSate()
+  
+}
 
 </script>
