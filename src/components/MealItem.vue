@@ -1,10 +1,15 @@
 <template>
   <div class="bg-white rounded-t-xl overflow-hidden border shadow">
     <router-link :to="{ name: 'mealDetail', params: { id: meal.idMeal } }">
-      <img :src="meal.strMealThumb" alt="strMeal" class="h-48 w-full object-cover" />
+   <div class=" relative">
+    <img :src="meal.strMealThumb" alt="strMeal" class=" h-48 w-full object-cover" />
+    <span v-if="meal.strCategory" class="absolute top-2 left-2 px-3 py-2 text-xs rounded-lg bg-green-100 text-green-600">{{meal.strCategory}}</span>
+   </div>
+   
     </router-link>
     <div class="p-3">
-      <h3 class="font-bold">{{ meal.strMeal }}</h3>
+      <h3 class="font-bold text-md text-gray-600">{{ meal.strMeal }}</h3>
+      
       <p class="mb-4">
         {{ meal.strDescription }}
       </p>

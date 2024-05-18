@@ -1,12 +1,12 @@
 <template>
-  <div class="flex flex-col p-8 justify-center">
-    <div class="flex justify-center mt-2 gap-3">
+  <div class="p-5 md:p-0  max-w-[900px]">
+    <div class=" hide-scroll-bar gap-2 flex mb-5 justify-start overflow-x-scroll mt-8 ">
       <router-link
         :to="{ name: 'byLetter', params: { letter } }"
         v-for="letter in letters"
         :key="letter"
       >
-        {{ letter }}
+       <span class="px-3 py-2 ml-2  hover:bg-green-400 hover:text-white  bg-white"> {{ letter }}</span>
       </router-link>
       <div></div>
     </div>

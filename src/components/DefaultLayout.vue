@@ -1,15 +1,21 @@
 <template>
-  <div class="grid grid-cols-2 grid-rows-2   bg-gray-100 ">
-   <div  class="bg-black p-3 h-16 col-span-2">f</div>
-    <NavBar />
-    <main>
-      <router-view />
-    </main>
+  <div class="relative flex flex-col bg-gray-100 min-h-screen">
+    <div class=" "><TopNavBar /></div>
+    <div class="flex">
+      <NavBar class="inline-flex " />
+      <main class="w-full md:w-9/12 mb-48">
+        <router-view />
+      </main>
+      
+    </div>
+    <Footer />
   </div>
-  <Footer/>
+
+
 </template>
 
 <script setup>
 import Footer from '@/components/Footer.vue'
 import NavBar from './NavBar.vue'
+import TopNavBar from '@/components/TopNavBar.vue'
 </script>

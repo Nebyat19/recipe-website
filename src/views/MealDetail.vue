@@ -2,7 +2,7 @@
   <Status :meals="[computedMeal]" />
   <div  class="max-w-[800px] mx-auto p-8">
     <div>
-      <h1 class="text-3xl font-bold mb-5">{{ computedMeal.strMeal }}</h1>
+      <h1 class="text-2xl text-gray-600 font-bold mb-5">{{ computedMeal.strMeal }}</h1>
       <img
         :src="computedMeal.strMealThumb"
         :alt="computedMeal.strMeal"
@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="flex justify-between mt-5">
-      <YouTubeButton>Goto Youtube</YouTubeButton>
+      <YouTubeButton :href="meal.strYoutube">Goto Youtube</YouTubeButton>
       <a
         :href="meal.strSource"
         target="_blank"
@@ -63,11 +63,12 @@
 
 import { computed, onMounted} from 'vue'
 import YouTubeButton from '@/components/YouTubeButton.vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import Status from '@/components/Status.vue'
 import { useRecipeStore } from '@/stores/RecipeStore'
 
 const route = useRoute()
+const router = useRouter();
 const meal = computed(()=>recipeStore.mealDetail)
 
 const computedMeal = computed(() => meal.value || {})
@@ -77,9 +78,10 @@ const computedTags = (tags) => {
 }
 const recipeStore = useRecipeStore()
 
-onMounted(() => {
-  recipeStore.fetchMealDetail(route.params.id)
-  
+onMounted(async() => {
+ await recipeStore.fetchMealDetail(route.params.id)
+  if(!route.params.id || route.params.id.length===0)  router.push('/404')
+  console.log("aaa",computedMeal.value.length)
  
 })
 </script>

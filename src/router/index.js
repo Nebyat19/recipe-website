@@ -4,11 +4,12 @@ import adminPage from '@/components/AdminLayout.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     component: DefaultLayout,
-    children: [
+    children: [ 
+  
       {
-        path: '/',
+        path: '/home',
         name: 'home',
         component: () => import('../views/HomeView.vue')
       },
@@ -37,13 +38,21 @@ const routes = [
         path: '/meal/:id',
         name: 'mealDetail',
         component: () => import('../views/MealDetail.vue')
-      }
+      },
+      { path: '/404', name:'404', component:  () => import('../views/404Page.vue') },  
     ]
+  },
+  {
+    path: '/',
+    name: 'landing',
+    component: () => import('../views/LandingView.vue')
   },
   {
     path: '/admin',
     component: adminPage
-  }
+  },
+  
+  { path: '/:catchAll(.*)', redirect:'404'}
 ]
 
 const router = createRouter({

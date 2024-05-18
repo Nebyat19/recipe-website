@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center justify-center h-full">
+    <div class="flex flex-col items-center justify-center ">
       <div v-if="isLoading" class="flex flex-col mt-5 items-center">
         <img :src="LOADER" alt="Loading..." />
         <span class="text-gray-600">Loading...</span>

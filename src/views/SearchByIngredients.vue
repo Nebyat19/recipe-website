@@ -1,5 +1,5 @@
 <template>
-  <div class="px-16 py-5 ">
+  <div class="px-8 py-5 ">
     <Meals :meals="meals"/>
   </div>
 

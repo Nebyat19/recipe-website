@@ -8,11 +8,12 @@
   font-style: normal;
   margin: 0;
   padding: 0;
+  
 }
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 100 0% 100%;
     --foreground: 0 0% 3.9%;
 
     --card: 0 0% 100%;
@@ -44,7 +45,7 @@
   }
 
   .dark {
-    --background: 0 0% 3.9%;
+    --background: 100 0% 3.9%;
     --foreground: 0 0% 98%;
 
     --card: 0 0% 3.9%;
